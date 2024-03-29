@@ -101,12 +101,12 @@ Logistic regression makes the use of sigmoid function which helps in the transfo
 
 \begin{figure}[ht]
 \centering
-\includegraphics[height=6.6cm]{figures/image.png}
+\includegraphics[height=6.6cm]{figures/sigmoid.png}
 \caption{Sigmoid Function}
 \label{sigmoid}
 \end{figure}
 
-(\ref{sigmoid_eq}) shows the equation of a sigmoid function where x is any real-valued number which needs to be converted into a number between 0 and 1
+(\ref{sigmoid_eq}) shows the equation of a sigmoid function where $x$ is any real-valued number which needs to be converted into a number between 0 and 1
 
 \begin{equation}
 f(x) = \frac{1}{1 + e^{-x}}
@@ -118,7 +118,8 @@ f(x) = \frac{1}{1 + e^{-x}}
 
 The data is stimulated using Python and AI tools. An overview of the variables considered in the data was taken by going through different research papers and articles. 
 
-\subsubsection{Summary}
+\subsubsection{Data Summary}
+The sample encompasses the purchase decisions made by customers regarding various products, which may or may not feature green packaging.The dataset has 330 customers and their information. 
 The data consists of the following variables
 \begin{itemize}
 
@@ -133,28 +134,90 @@ The data consists of the following variables
 
 Whether the customer purchased the product or not is the dependent variable and the rest are independent variables. 
 
-\subsection{How to include equations, figures and tables?}
+\begin{table}[h]
+\centering
+\caption{Summary Statistics}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+\textbf{Index} & \textbf{Age} & \textbf{Income} & \textbf{Gender} & \textbf{Price} & \textbf{Green Pack} & \textbf{Purchase} \\
+\hline
+Count & 330 & 330 & 330 & 330 & 330 & 330 \\
+\hline
+Mean & 40.188 & 79093.939 & 0.500 & 2305.558 & 0.545 & 0.661 \\
+\hline
+Std & 10.561 & 31987.012 & 0.501 & 1251.297 & 0.499 & 0.474 \\
+\hline
+Min & 20 & 25000 & 0 & 300 & 0 & 0 \\
+\hline
+25\% & 31 & 52250 & 0 & 1200 & 0 & 0 \\
+\hline
+50\% & 40 & 78000 & 0.5 & 2050 & 1 & 1 \\
+\hline
+75\% & 49 & 98000 & 1 & 3206.75 & 1 & 1 \\
+\hline
+Max & 60 & 160000 & 1 & 4932 & 1 & 1 \\
+\hline
+\label{summary_statistic}
+\end{tabular}
+\end{table}
 
-Some of us like to include a formula or two and these should be referred to in the test in the form equation 1. You must type in equations using the equation editor and all symbols should be explained within the text of your manuscript. However you may prefer to include a separate section detailing all nomenclature. Never paste equations in from a paper or other source. Leave a blank line before and after the equation:
+Table \ref{summary_statistic} shows the summary statistic of all the variables. The average price is  2305.558 and the mean income of the customers is 79093.939. The lowest income is 25000 and the maximum income is 160000
 
 
-where $x$ is a number; $a$, $b$, and $c$ are other numbers.
 
-\begin{equation}
-BCP = 176R+28G+46B
-\end{equation}
+\begin{table}[h]
+\centering
+\caption{Correlation Matrix}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+ & \textbf{Age} & \textbf{Income} & \textbf{Gender} & \textbf{Price} & \textbf{Green Pack} & \textbf{Purchase} \\
+\hline
+\textbf{Age} & 1.00 & 0.87 & -0.07 & 0.69 & -0.17 & 0.33 \\
+\hline
+\textbf{Income} & 0.87 & 1.00 & -0.03 & 0.81 & -0.14 & 0.41 \\
+\hline
+\textbf{Gender} & -0.07 & -0.03 & 1.00 & -0.04 & -0.16 & -0.06 \\
+\hline
+\textbf{Price} & 0.69 & 0.81 & -0.04 & 1.00 & -0.21 & 0.35 \\
+\hline
+\textbf{Green Pack} & -0.17 & -0.14 & -0.16 & -0.21 & 1.00 & -0.06 \\
+\hline
+\textbf{Purchase} & 0.33 & 0.41 & -0.06 & 0.35 & -0.06 & 1.00 \\
+\hline
+\label{Correlation_matrix}
+\end{tabular}
+\end{table}
 
-where, $BCP$, $R$, $G$ and $B$ are also useful numbers.
+Table \ref{Correlation_matrix} shows the correlation among the numerical variables. It is evident from the table that the \textit{Income} of the customers and the \textit{Purchase decision} of the customers are positively correlated. 
+It is also apparent that there is a negative correlation between the \textit{age} of the customers and the decision to \textit{buy} the product
 
-Figure \ref{fig_regression} shows a graph.  Figures / diagrams / photos are to be centred, with the reference and caption printed below the figure. The lettering used in the illustrations should be easily legible.  Illustrations are to be referred to as figures, and must be quoted in the text. One blank line should be left between the figure caption and the next paragraph. Please ensure that all figures are of the highest quality. Keep figures as simple as possible. Avoid excessive notes. Photographs must have a resolution of at least 300 dpi. The use of colour is allowed on figures. Note that the test does not wrap around the figure but if you do not like the wasted space then it is acceptable to put two figures side by side but they must be e.g. a ‘Figure \ref{fig_bridge1}’ and ‘Figure \ref{fig_bridge2}’ and not ‘Figure 1’ and ‘Figure 2’. See the example given as Figure \ref{fig_twobridges}. However all figures must be as close as possible to the location where they are first referred to in the text. The figure is also not surrounded by an unnecessary box/border. Remove this when inserting figures from MS Excel.
+
+
+\subsection{Case Analysis}
 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[height=6.6cm]{figures/fig_regression}
-\caption{An interesting plot (note that figure captions go BELOW THE FIGURE).}
+\includegraphics[height=6.6cm]{figures/coeff.png}
+\caption{Summary of Logistic Function}
 \label{fig_regression}
+\label{summary_lr}
 \end{figure}
+
+\ref{summary_lr} shows the output of a python code. 
+%complete this
+
+
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[height=4.5cm]{figures/class_table.png}
+\caption{Classification Table}
+\label{class_tab}
+\end{figure}
+
+\ref{class_tab} shows the classification table. %add labels
 
 
 \begin{figure}[ht]
@@ -179,10 +242,6 @@ Figure \ref{fig_regression} shows a graph.  Figures / diagrams / photos are to b
 
 
 
-\section{NEXT HEADING}
-
-Table \ref{tab_materials} contains something interesting. For tables make sure that you use 8 point Times New Roman for ALL the text in the Tables (apart from the caption). Please be consistent throughout your manuscript. Leave one blank line before the table title, another blank line after the title and one blank line after the table. Table titles must be above the table. As with figures the use of color is acceptable in tables. Make sure that the table does not run across multiple pages. If it does then have a repeat of the table caption with the word ‘continued’ in brackets after it.
-
 
 \begin{table}[h]
 \begin{center}
@@ -199,6 +258,15 @@ Table \ref{tab_materials} contains something interesting. For tables make sure t
 \label{tab_materials}
 \end{center}
 \end{table}
+
+
+
+
+
+
+
+
+
 
 
 \section{SUMMARY}
