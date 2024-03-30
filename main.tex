@@ -40,31 +40,17 @@
 \textbf{Nitya Verma,} \textit{Narsee Monjee Institute Of Management Studies, Mumbai}\\
 
 \noindent 
-\textbf{ABSTRACT: } The abstract is a summary of your research project and includes motivation, aims, methods used, (preliminary) findings and (preliminary) conclusions.  The abstract should be a stand-alone document that someone could read to get a general overview of your research project.  
-
-Write the abstract the font shown but make sure it is no longer than about 500 words (and it must fit on a single page which includes the title, authors and keywords). The words of ‘Abstract’ and ‘Keywords’ are set in bold and full caps.  Make sure you put your correct project code in the footer. If you have two supervisors you can list both of them.  If one of them is from industry you should give their company name etc.
-Please note the following rules regarding the final paper:
-\begin{itemize}
-    \item First page (starts with - Title, Authors, Abstract(s) and Keywords) [MANDATORY] and then follows
-    \item Body of the paper (text and tables and or figures in the format shown) [MANDATORY]
-    \item Notation [OPTIONAL]
-    \item Appendices [OPTIONAL]
-    \item References [MANDATORY]
-\end{itemize}
-
-The total length of the paper is to be no more than \textbf{14pp for 3rdyr and 19pp for 4thyr}. A cover sheet is also required in addition to the research paper. Note that the cover sheet is not included in the page limit.
-\\
+\textbf{ABSTRACT: } The need for sustainable packaging is growing rapidly. Non-biodegradable or traditional packaging materials leave carbon footprints which lead to degradation of the environment. This paper aims to find the whether the consumers are inclined towards buying products with sustainable packaging or not. The study uses logistic regression to classify and predict the consumers decisions. It was found that younger customers and customers belonging to high income class were generally the ones who purchased products with green packaging. 
+ 
 
 \noindent 
-\textbf{KEYWORDS:} Keyword 1, Keyword 2 and Keyword 3. You can include a maximum of 6 keywords for indexing purposes (spaced by commas). Keywords are single words or short phrases describing the main concepts/topics covered in the paper. Sometimes only 2 or 3 keywords will suffice, but definitely no more than six.\\
-
+\textbf{KEYWORDS:} \textit{Green  packaging},\textit{Logistic Regression}
 
 \section{INTRODUCTION}
 
-Consumers are the essence of any business. They come at the top of the development process of every business./cite(Witek2020). The phrase customer is king is valid in every venture across the globe as they make or break a business. The importance given to the customers makes it all the more crucial to understand their psyche and behaviour as that directly impacts the firms' profit and longevity. 
+Consumers are the essence of any business. They come at the top of the development process of every business \cite{Witek2020}. The phrase customer is king is valid in every venture across the globe as they make or break a business. The importance given to the customers makes it all the more crucial to understand their psyche and behaviour as that directly impacts the firms' profit and longevity. 
 
-
-It's no surprise that environmental contamination is at its peak currently /cite(RaviVyas2023). An enormous bulk of this contamination comes from waste packaging. Due to the growing age of the internet, the social and environmental awareness of consumers is growing rapidly \cite{Groening2018}. People care more about the state of the world now than ever before. 
+It's no surprise that environmental contamination is at its peak currently \cite{RaviVyas2023}. An enormous bulk of this contamination comes from waste packaging. Due to the growing age of the internet, the social and environmental awareness of consumers is growing rapidly \cite{Groening2018}. People care more about the state of the world now than ever before. 
 
 Corporate Social Responsibility (CSR) activities were made mandatory in April 2014 under the Companies Act 2013. The main aim of this modification by the Government of India was to inculcate a sense of social consciousness in the firms. The increase in environmental degradation made it all the more vital for the firms to make small changes to influence society at large, which led to the popularity of a new term known as "Green Marketing". Green Marketing came into emergence in the 1980s. It simply means the promotion, distribution, and packaging of products and services by focusing on their sustainability and ecological benefits. 
 
@@ -73,23 +59,8 @@ Green Marketing comes with its own set of pros and cons but the perspective matt
 
 \subsection{Green Packaging}
 
-Green packaging is a subset of green marketing. It refers to the usage of eco-friendly packaging instead of plastics and non-biodegradable items. Ministry of Food Processing Industries published a focus paper, \cite{MOFPI2023} which gave insights on sustainable packaging. Some of the major benefits of green packaging mentioned in the paper were minimizing carbon footprint, waste reduction, and improvement in brand image. Food, normally requires plenty of packaging which in turn requires excessive materials. Paper packaging, biodegradable plastics, and compostable plastics are some of the common green packaging products.
-
-
-
-\begin{itemize}
-    \item If you want to list bullet points you can do so;
-    \item This is the second point;
-    \item This is a third bullet point;
-    \item A fourth bullet point;
-    \item But you can.
-\end{itemize}   
-
-After a list you must leave a single blank line and remember to add the indent if you are starting a new paragraph.
-
-\subsection{Another sub-heading}
-
-You can have as many sub-headings in a section as you want to. Note that sub-headings have a 6pt spacing after them rather than a blank line but they are preceded by a blank line. The number of sections and sub-sections is up to you, as are the titles of each of them and this will be driven by the content of your report.
+Green packaging is a subset of green marketing. It refers to the usage of eco-friendly packaging instead of plastics and non-biodegradable items. Ministry of Food Processing Industries published a focus paper, \cite{MOFPI2023} which gave insights on sustainable packaging. Some of the major benefits of green packaging mentioned in the paper were minimizing carbon footprint, waste reduction, and improvement in brand image. Food, normally requires plenty of packaging which in turn requires excessive materials. Paper packaging, biodegradable plastics, and compostable plastics are some of the common green packaging products. \cite{Oloyede2021} says that paper is one of the best materials for packaging as it has a significant value and is better in terms of 
+eco-friendliness as compared to rest of the materials.
 
 \section{Methodology}
 
@@ -199,127 +170,98 @@ It is also apparent that there is a negative correlation between the \textit{age
 \begin{figure}[ht]
 \centering
 \includegraphics[height=6.6cm]{figures/coeff.png}
-\caption{Summary of Logistic Function}
+\caption{Parameters of the logistic regression model and their assessment}
 \label{fig_regression}
 \label{summary_lr}
 \end{figure}
 
-\ref{summary_lr} shows the output of a python code. 
-%complete this
+\ref{summary_lr} shows the variables present in the data and their respective coefficients. It is evident that age and income are significant at 0.05 .We will now estimate the parameters of the logistic regression model, the values of which are given.
 
+\begin{equation}
+P(\text{Purchase} = \text{yes} | X) = \frac{e^{a}}{1 + e^{a}}
+\label{LR_model}
+\end{equation}
+where
+\begin{equation}
+a = -0.0899 \times \text{age} + 6.592 \times 10^{-5} \times \text{income} - 0.4696 \times \text{gender} - 7.279 \times 10^{-5} \times \text{price} - 0.302 \times \text{green\_pack}
+\label{LR_equation}
+\end{equation}
 
+\ref{class_tab} shows the classification table. It can be seen that 66.67\% of the data is correctly classified. Only age and income are significant in explaining the decision of the consumer to purchase the product. The negative sign of the age coefficient indicates that older people generally don't buy products with green packaging and the positive coefficient of income shows that people with higher income mostly purchase the products with green packaging.
 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[height=4.5cm]{figures/class_table.png}
+\includegraphics[height=4.5cm]{figures/confusion_matrix.png}
 \caption{Classification Table}
 \label{class_tab}
 \end{figure}
+\vspace{10pt}
+\ref{accuracy} shows the various accuracy measures to better understand the model
 
-\ref{class_tab} shows the classification table. %add labels
 
+\begin{itemize}
+    \item 	Precision: Precision measures the accuracy of positive predictions made by the model.
+    \begin{equation}
+        \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+    \end{equation}
+    For class 0 (no purchase), it means that among the instances predicted as "no purchase" by the model, 60\% of them are actually "no purchase". Similarly, for class 1 (purchase), 69\% of instances predicted as "purchase" by the model are actually "purchase".
+    \vspace{15pt}
+
+    \item Recall/Sensitivity : Recall measures the ability of the model to correctly classify the positive instances.
+       \begin{equation}
+        \text{Sensitivity} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+    \end{equation}
+   The sensitivity of the model turns out to be 85\% which means that the model correctly identifies 85\% of the actual "purchase" instances.
+    \vspace{15pt}
+
+    \item Specificity : Specificity is an accuracy measure which represents the ability of the model to correctly classify the negatives instances. 
+    \begin{equation}
+        \text{Specificity} = \frac{\text{True Negatives}}{\text{True Negatives} + \text{False Positives}}
+
+    \end{equation}
+    
+The specificity of the model is 36\% which means that for the "No purchases" class the model correctly identifies 36\% of the actual "no purchase" instances.
+     \vspace{15pt}
+ 
+    \item The F1-score is the harmonic mean of precision and recall. It provides a balance between precision and recall. For class 0 (no purchase), the F1-score is 0.45, and for class 1 (purchase), the F1-score is 0.76.
+
+\end{itemize}
 
 \begin{figure}[ht]
-     \centering
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{figures/fig_bridge1}
-         \caption{Bridge 1}
-         \label{fig_bridge1}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{figures/fig_bridge2}
-         \caption{Bridge 2}
-         \label{fig_bridge2}
-     \end{subfigure}
-        \caption{Walton-on-Thames Bridge (a) wide shot and (b) the underside of the deck
-(photos taken by P. J. Vardanega, used with permision)}
-        \label{fig_twobridges}
+\centering
+\includegraphics[height=4.5cm]{figures/accuracy.png}
+\caption{Classification Report} 
+\label{accuracy}
 \end{figure}
 
+\vspace{10pt}
+\begin{figure}[ht]
+\centering
+\includegraphics[height=4.5cm]{figures/AUC_ROC.png}
+\caption{Receiver Operating Characteristic Curve} 
+\label{auc}
+\end{figure} 
 
-
-
-\begin{table}[h]
-\begin{center}
-\caption{Summary of the database (note that table captions go ABOVE THE TABLE)}
-\begin{tabular}{ |l|c|l| }
-\hline
- \textbf{Column heading} & \textbf{Column heading}    & \textbf{Column heading} \\ \hline 
- Table Text     & 10     & Falling head permeameter \\  \hline 
- Concrete       & 2      & Strong \\ \hline 
- Steel          & 1      & Stronger \\ \hline 
- Timber         & 3      & Weak \\ 
- \hline
-\end{tabular}
-\label{tab_materials}
-\end{center}
-\end{table}
-
-
-
-
-
-
-
-
-
-
-
-\section{SUMMARY}
-
-The conclusions to be drawn from this work are as follows:
+\vspace{30pt}
+\ref{auc} shows the Receiver operating characteristic curve and the Area Under the curve of the model.
 \begin{itemize}
-    \item 	This is a great template
+    \item AUC is the proportion of the concordant pairs in the data if the model is used for classification. AUC for the data turned out to be \textit{0.64} which refers to \textbf{weak discrimination}. The model's performance is fair but there is room for improvement
+
+    \item ROC curve can be used to understand the overall worth of the logistic regression model. Sensitivity is on the Y-axis and (1-Specificity) is on the X-axis. The straight line shows the 0.5 cut-off.
 \end{itemize}
 
 
-At the end of the reference list no more than 15 pages should be in your ENTIRE document (including the cover sheet). Do check else a penalty will be applied!  (For students enrolled in CENGM0080 your document including the cover sheet must be no longer than 20 pages using this template).
+\section{Conclusion}
+\begin{itemize}
+    \item From the case it can be seen that the consumers belonging to an high income class are the ones who generally purchase products with green packaging. 
+    \item Younger customers are more likely to purchase products with green packaging than older customers. 
+    \item More awareness regarding green packaging should be spread in order to decrease and eventually eliminate non-recyclable waste.
+\end{itemize}
 
-Remember you need to submit your research paper as a PDF document! Make sure you check that all the fonts, figures and text is preserved in the layout you intend when PDF conversion is done!
+\section{Future Scope}
 
-
-\subsection{Limitations and Recommendations for further work}
-
-For this research paper it is useful to include this section where you discuss the limitations of your work and point to future work.
-
-\section{ACKNOWLEDGEMENTS}
-
-Use this section to thank people who have assisted during the project – if you want. It is good form to thank your supervisor, technicians and doctoral students who have helped and anyone else who deserves a mention – but do not make it too personal. 
-
-For example, ‘the author wishes to thank Dr X for their supervision throughout the year and also Mr G who helped build the testing rig described in this paper.’
-Use this section to thank your data sources including citations to the data, weblinks, etc.
-
-\section{APPENDIX I}
-
-These are NOT RECOMMENDED. However, if you want to put a mathematical derivation or large data table at the back of the paper in an appendix please put it before the NOTATION LIST. 
-
-\section{APPENDIX II}
-
-If a second appendix is used then call the first appendix ‘APPENDIX I’ and the second ‘APPENDIX II’ and so on.
-
-\section{NOTATION}
-
-This section is optional. If you have few equations it may be better to simply define all the variables in the text as shown. For highly mathematical papers this section is very helpful for the reader. Note that this section heading is not numbered. Please put the following statement in italics before the notation list:
-
-\textit{The following acronyms and symbols are used in the work described in this paper:}
-
-\textbf{Acronyms}
-
-BSI	 British Standards Institute
-
-\textbf{Symbols}
-
-\textit{Latin}
-
-$A$ = a constant
-
-\textit{Greek}
-
-$\gamma$ = shear strain
+As the data was stimulated for the purpose of understanding and applying logistic regression, the accuracy couldn't be high. More variables and real-life data can be taken into account to make more realistic and better prediction.
 
 
 
